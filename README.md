@@ -87,6 +87,7 @@ $ mvn package
       - [paas-ta-container-platform-source-control-api](source-control/paas-ta-container-platform-source-control-api)
       - [paas-ta-container-platform-source-control-ui](source-control/paas-ta-container-platform-source-control-ui)
       - [paas-ta-container-platform-source-control-broker](source-control/paas-ta-container-platform-source-control-broker)
+      - [paas-ta-container-platform-source-control-manager](source-control/paas-ta-container-platform-source-control-manager)
       
 
 <br>
@@ -108,7 +109,7 @@ FROM openjdk:8-jdk-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} container-platform-source-control-api.jar
 COPY application.properties /application.properties
-ENTRYPOINT ["java","-jar","-Dspring.config.location=application.properties","-Dspring.profiles.active=prod","/container-platform-source-control-api.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.config.location=application.properties", "/container-platform-source-control-api.jar"]
 ```
 - 이미지 생성
   + {HAProxy_IP} : BOSH Inception에 배포된 Deployment <b>'container-platform'</b> 의 haproxy public ip 입력
